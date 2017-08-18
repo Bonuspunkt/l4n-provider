@@ -1,0 +1,21 @@
+{
+  "name": "l4n-client",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "dependencies": {
+    "debug": "^3.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0",
+    "tap": "^10.7.2"
+  },
+  "scripts": {
+    "dev-svr": "nodemon",
+    "test": "tap lib/**.test.js"
+  },
+  "author": "Bonuspunkt"
+}
