@@ -1,15 +1,12 @@
-// .\steamcmd +login anonymous +force_install_dir ./servers/csgo +app_update 740 +quit
-// .\steamcmd +login anonymous +force_install_dir ./servers/l4d +app_update 222840 +quit
-// .\steamcmd +login anonymous +force_install_dir ./servers/l4d2 +app_update 222860 +quit
-// .\steamcmd +login anonymous +force_install_dir ./servers/tf2 +app_update 232250 +quit
-
-// .\steamcmd +login anonymous +force_install_dir ./servers/reflexArena +app_update 329740 +quit
-// .\steamcmd +login anonymous +force_install_dir ./servers/seriousSam3 +app_update 41080 +quit
+const fs = require('fs');
 
 module.exports = {
     https: {
-        //key,
-        //cert
+        ca: fs.readFileSync('ca-crt.pem'),
+        key: fs.readFileSync('server-key.pem'),
+        cert: fs.readFileSync('server-crt.pem'),
+        requestCert: true,
+        rejectUnauthorized: true
     },
     gameServers: [{
         name: 'csgo',
@@ -20,6 +17,6 @@ module.exports = {
         ],
     }, {
         name: 'l4d2',
-        workingDir: 'E:/SteamCMD/servers/l4d2',
+        workingDir: 'C:/SteamCMD/servers/l4d2',
     }]
 };
