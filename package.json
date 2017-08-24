@@ -7,14 +7,16 @@
     "lib": "lib"
   },
   "dependencies": {
-    "debug": "^3.0.0"
+    "debug": "^3.0.0",
+    "http-router": "^0.5.0",
+    "repatch": "^1.1.0"
   },
   "devDependencies": {
     "nodemon": "^1.11.0",
     "tap": "^10.7.2"
   },
   "scripts": {
-    "dev-svr": "nodemon",
+    "dev-svr": "nodemon bin/l4n-provider.js settings.js",
     "test": "tap lib/**.test.js"
   },
   "author": "Bonuspunkt"
