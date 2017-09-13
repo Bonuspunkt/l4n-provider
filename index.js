@@ -1,11 +1,21 @@
 const UdpResponder = require('./lib/udpResponder');
+const { Resolver } = require('l4n-common');
 
 module.exports = function(settings) {
-    const { https, gameProviders } = settings;
+    const { register, resolve } = new Resolver();
 
-    const udpResponder = new UdpResponder();
+    register('settings', () => settings);
+    const gameProviders = settings.games.map(game => {
+        const provider = require(`l4n-provider-${ game.name }`);
+        return provider(game);
+    });
+    register('gameProviders', () => gameProviders);
+
+
+    const udpResponder = new UdpResponder({});
     udpResponder.listen();
 
-    require('./lib/httpsServer')(https, gameProviders);
-
+    const TlsServer = require('./lib/tlsServer');
+    const tlsServer = new TlsServer(resolve);
+    tlsServer.listen()
 };

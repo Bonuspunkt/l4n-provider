@@ -16,14 +16,5 @@ if (!fs.existsSync(settingsPath)) {
     return console.log(`settings.js was not found at ${ settingsPath }`);
 }
 
-const baseSettings = require(settingsPath);
-const settings = Object.assign({},
-    baseSettings,
-    {
-        gameProviders: baseSettings.games.map(game => {
-            const provider = require(`l4n-provider-${ game.name }`)
-            return provider(game);
-        })
-    });
-
+const settings = require(settingsPath);
 l4nProvider(settings);
