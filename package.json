@@ -1,5 +1,5 @@
 {
-  "name": "l4n-client",
+  "name": "l4n-provider",
   "version": "0.0.0",
   "description": "",
   "main": "index.js",
@@ -22,6 +22,7 @@
   },
   "scripts": {
     "dev-svr": "nodemon bin/l4n-provider.js settings.js",
+    "lint": "eslint --ignore-path .gitignore  .",
     "test": "tap **.test.js"
   },
   "eslintConfig": {
@@ -33,7 +34,7 @@
     "parserOptions": {
       "ecmaVersion": 2017,
       "ecmaFeatures": {
-        "experimentalObjectRestSpread": false
+        "experimentalObjectRestSpread": true
       }
     },
     "extends": [

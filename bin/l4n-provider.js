@@ -10,10 +10,10 @@ if (!settingsFile) {
     return console.log('Usage: l4n-provider <settings.js>');
 }
 const settingsPath = path.resolve(settingsFile);
-debug(`settings.js resolved to '${ settingsPath }'`);
+debug(`settings.js resolved to '${settingsPath}'`);
 
 if (!fs.existsSync(settingsPath)) {
-    return console.log(`settings.js was not found at ${ settingsPath }`);
+    return console.log(`settings.js was not found at ${settingsPath}`);
 }
 
 const settings = require(settingsPath);
