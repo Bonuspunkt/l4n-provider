@@ -1,12 +1,13 @@
 const UdpResponder = require('./lib/udpResponder');
+const Watchdog = require('./lib/watchdog');
 const { Resolver } = require('l4n-common');
 
 module.exports = function(settings) {
     const { register, resolve } = new Resolver();
 
     register('settings', () => settings);
-    const gameProviders = settings.games.map(game => {
-        const provider = require(`l4n-provider-${game.name}`);
+    const gameProviders = settings.servers.map(({ name, ...game }) => {
+        const provider = require(`l4n-provider-${name}`);
         return provider(game);
     });
     register('gameProviders', () => gameProviders);
@@ -17,6 +18,9 @@ module.exports = function(settings) {
     const TlsServer = require('./lib/tlsServer');
     const tlsServer = new TlsServer(resolve);
     register('tlsServer', () => tlsServer);
+
+    const watchdog = new Watchdog();
+    register('watchdog', () => watchdog);
 
     udpResponder.listen();
     tlsServer.listen();
