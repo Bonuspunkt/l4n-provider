@@ -1,0 +1,26 @@
+// all comments out lines are default values
+const { readFileSync } = require('fs');
+const { resolve } = require('path');
+
+module.exports = {
+    hostname: ${hostname},
+    // broadcast discovery
+    udpResponder: {
+        message: new Buffer('¿l4n?'),
+        port: 19999
+    },
+    // communication
+    tlsServer: {
+        ip: ${ip},
+        port: 20000,
+        ca: readFileSync('.keys/ca-crt.pem'),
+        key: readFileSync('.keys/server-key.pem'),
+        cert: readFileSync('.keys/server-crt.pem'),
+        requestCert: true,
+        rejectUnauthorized: true,
+    },
+
+    providers: [
+${providers}
+    ]
+};

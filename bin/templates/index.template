@@ -1,0 +1,13 @@
+const settings = require('./settings');
+const { Resolver } = require('l4n-common');
+const resolver = new Resolver();
+
+resolver.register('settings', () => settings);
+
+const providers = settings.providers.map(({ name, ...settings }) => {
+    const provider = require(`l4n-provider-${name}`);
+    return provider(settings);
+});
+resolver.register('providers', () => providers);
+
+require('l4n-provider')(resolver);
