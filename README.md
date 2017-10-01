@@ -10,15 +10,15 @@ install your supported games ex.
 npm i l4n-provider-csgo
 ```
 
-copy the template and adapt it, to your setup
+## setup
 ```
-cp ./node_modules/l4n-provider/settings.sample.js ./settings.js
-vi ./settings.js
+npx l4n-provider init
 ```
+check the created `settings.js` file
 
-launch the provider
+## launch
 ``` sh
-npx l4n-provider ./settings.js
+node ./index.js
 ```
 
 ## securing
