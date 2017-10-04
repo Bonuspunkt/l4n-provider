@@ -4,6 +4,6 @@ module.exports = function(resolve) {
     const status = require('../lib/route/status')(resolve);
     const spawn = require('../lib/route/spawn')(resolve);
 
-    tlsServer.on('status', socket => status(socket));
+    tlsServer.on('status', status);
     tlsServer.on('spawn', spawn);
 };
