@@ -4,7 +4,7 @@
   "bin": {
     "l4n-provider": "./bin/l4n-provider.js"
   },
-  "description": "",
+  "description": "// TODO: rough routline",
   "main": "index.js",
   "directories": {
     "lib": "lib"
@@ -64,5 +64,14 @@
     }
   },
   "author": "Bonuspunkt",
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bonuspunkt/l4n-provider.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/Bonuspunkt/l4n-provider/issues"
+  },
+  "homepage": "https://github.com/Bonuspunkt/l4n-provider#readme"
 }
