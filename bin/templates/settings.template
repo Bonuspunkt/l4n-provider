@@ -4,6 +4,7 @@ const { resolve } = require('path');
 
 module.exports = {
     hostname: ${hostname},
+    ip: ${ip},
     // broadcast discovery
     udpResponder: {
         message: new Buffer('¿l4n?'),
@@ -11,7 +12,6 @@ module.exports = {
     },
     // communication
     tlsServer: {
-        ip: ${ip},
         port: 20000,
         ca: readFileSync('.keys/ca-crt.pem'),
         key: readFileSync('.keys/server-key.pem'),
